@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: notification-application
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/notification_database?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+server:
+  port: 8083
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
