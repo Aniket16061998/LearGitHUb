@@ -20,12 +20,13 @@ import java.time.LocalDateTime;
 public class CustomerController {
     private final CustomerService customerService;
 
-//    @CircuitBreaker(name = "registerCustomerR4j", fallbackMethod = "registerCustomerFallback")
 
     int count = 1;
+    @CircuitBreaker(name = "registerCustomerR4j", fallbackMethod = "registerCustomerFallback")
+
 //    @Retry(name = "registerCustomerR4j", fallbackMethod = "registerCustomerFallback")
 
-    @RateLimiter(name = "registerCustomerR4j", fallbackMethod = "registerCustomerFallback")
+//    @RateLimiter(name = "registerCustomerR4j", fallbackMethod = "registerCustomerFallback")
     @PostMapping(path = "")
     public SuccessResponse registerCustomer(@RequestBody CustomerRegistrationRequest request) {
         System.out.println(count++);
